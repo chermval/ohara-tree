@@ -37,7 +37,9 @@
 /* styling our main content */
 .tabla-libros {
   border-collapse: collapse;
-  width: 100%;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tabla-libros, td, th {
