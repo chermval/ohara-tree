@@ -87,9 +87,10 @@
        
 	       
 	booksRef.orderByChild("title").on("child_added", function(data) {
-   		alert("order "+data.val().name);
+   		alert("order "+data.val().title);
 	});
-	      booksRef.on("value", function(snapshot) {
+	
+	    booksRef.on("value", function(snapshot) {
             var bookLista = snapshot.val();
             alert("bok directo "+bookLista.title);
                    
