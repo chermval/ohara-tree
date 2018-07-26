@@ -64,6 +64,34 @@
     <footer>
         <p>Create by: chermosi</p>
     </footer>
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAqziyItFSVprB2olBX5xec0M2YVTQKG0w",
+            authDomain: "ohara-tree.firebaseapp.com",
+            databaseURL: "https://ohara-tree.firebaseio.com",
+            projectId: "ohara-tree",
+            storageBucket: "ohara-tree.appspot.com",
+            messagingSenderId: "608431861904"
+        };
+        firebase.initializeApp(config);
+        
+        
+        // Get a reference to the database service
+        var database = firebase.database();
+        
+       database.ref("books/").on("value", function(snapshot) {
+            var bookLista = snapshot.val();
+           
+            alert(bookLista.9780553448122.title);            
+           
+        }, function (error) {
+        console.log("Error: " + error.code);
+        });
+    </script>
 
 </body>
 </html>
