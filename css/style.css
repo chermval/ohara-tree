@@ -16,9 +16,12 @@
   width: 100%;
 }
 
+.tabla-libros, td, th {
+    border: 1px solid #425693;
+}
+
 .tabla-libros-cabezera {
   background-color: #1d2c59;
   color: white;
-  border: 1px solid #425693;
   height: 50px;
 }
