@@ -5,13 +5,20 @@
   padding: 20px 30px;
 }
 
+.cabezera-logo {
+  display: inline-block;
+  color: #FFF;
+  text-decoration: none;
+  width: 49%;
+}
+
 .cabezera-menu {
   width: 50%;
   display: inline-block;
   text-align: right;
 }
 
-nav ul li {
+.cabezera-menu ul li {
   display: inline-block;
 }
 .cabezera-menu ul li a    {
