@@ -32,7 +32,7 @@
         <article>
             <h2>Libros registrados</h2>
             
-            <table class="tabla-libros">
+            <table id="listaLibros" class="tabla-libros">
                 <tr class="tabla-libros-cabezera">
                     <th>Titulo</th>
                     <th>Tipo</th>
@@ -84,32 +84,18 @@
         var database = firebase.database();
         var booksRef = database.ref("books/");
 	
-	var table = document.getElementById("myTable");
+	var table = document.getElementById("listaLibros");
 	       
 	booksRef.orderByChild("title").on("child_added", function(data) {
-   		alert("order "+data.val().title);
-		
 		var rowCount = table.rows.length;
     		var row = table.insertRow(rowCount);
     		
-
     		row.insertCell(0).innerHTML= data.val().title;
     		row.insertCell(1).innerHTML= data.val().type;
     		row.insertCell(2).innerHTML= data.val().colection;
     		row.insertCell(3).innerHTML= data.val().autor;
     		row.insertCell(4).innerHTML= data.val().format;
-	
 	});
-	
-	    booksRef.on("value", function(snapshot) {
-            var bookLista = snapshot.val();
-            alert("bok directo "+bookLista.title);
-                   
-           for(var book in bookLista){
-	            alert("bok for "+book.title);
-            }
-        });
-        
     </script>
 
 </body>
