@@ -1,3 +1,15 @@
+/* styling our header content */
+.cabezera {
+  background: #222;
+  color: #FFF;
+  padding: 20px 30px;
+}
+
+.cabezera-menu {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+}
 
 /* styling our main content */
 .tabla-libros {
@@ -5,8 +17,8 @@
 }
 
 .tabla-libros-cabezera {
-  background-color: #ce4ae2;
+  background-color: #1d2c59;
   color: white;
-  border: 1px solid #d8d2c9;
+  border: 1px solid #425693;
   height: 50px;
 }
