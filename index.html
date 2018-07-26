@@ -83,12 +83,12 @@
         // Get a reference to the database service
         var database = firebase.database();
         
-       database.ref("books/9780553448122").on("value", function(snapshot) {
+       database.ref("books/").on("child_added", function(snapshot) {
             var bookLista = snapshot.val();
-            alert("bok directo"+bookLista.title);
+            alert("bok directo "+bookLista.title);
                    
            for(var book in bookLista){
-	            alert(book.title);
+	            alert("bok for "++book.title);
             }
         });
         
