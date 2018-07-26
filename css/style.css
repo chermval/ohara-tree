@@ -13,6 +13,7 @@
 
 /* styling our main content */
 .tabla-libros {
+  border-collapse: collapse;
   width: 100%;
 }
 
