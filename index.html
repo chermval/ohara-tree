@@ -86,11 +86,12 @@
        database.ref("books/").on("value", function(snapshot) {
             var bookLista = snapshot.val();
            
-            alert(bookLista.9780553448122.title);            
-           
-        }, function (error) {
-        console.log("Error: " + error.code);
+                   
+           for(var book in bookLista){
+	            document.write("<br>"+book.title);
+            }
         });
+        
     </script>
 
 </body>
