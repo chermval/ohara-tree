@@ -82,8 +82,14 @@
         
         // Get a reference to the database service
         var database = firebase.database();
-        
-       database.ref("books/").on("child_added", function(snapshot) {
+        var booksRef = database.ref("books/");
+	
+       
+	       
+	booksRef.orderByChild("title").on("child_added", function(data) {
+   		alert("order "+data.val().name);
+	});
+	      booksRef.on("value", function(snapshot) {
             var bookLista = snapshot.val();
             alert("bok directo "+bookLista.title);
                    
