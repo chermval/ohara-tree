@@ -11,6 +11,22 @@
   text-align: right;
 }
 
+nav ul li {
+  display: inline-block;
+}
+.cabezera-menu ul li a    {
+  color: #FFF;
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 3px;
+  transition: 0.3s ease all;
+}
+
+.cabezera-menu ul li a:hover   {
+  background: #444;
+}
+
 /* styling our main content */
 .tabla-libros {
   border-collapse: collapse;
