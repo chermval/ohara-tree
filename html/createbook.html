@@ -72,17 +72,16 @@
     	    var row = table.insertRow(rowCount);
             
            console.log(respuesta);
-		
-	
 
+	   for (var i = 0; i < 10; i++){
 		
-           var data = JSON.stringify(respuesta.data, null, '\t')
-		console.log(data); 
-		
-	    for (var i = 0; i < 10; i++){
-		document.getElementById("content").innerHTML += "<br>" + data;
-		 
+		 var libro = respuesta.data.items[i];
 
+		row.insertCell(0).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(1).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(2).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(3).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(4).innerHTML= libro.volumeInfo.title;  
 		
 	    }
             
