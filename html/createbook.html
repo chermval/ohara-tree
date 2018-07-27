@@ -30,6 +30,7 @@
     <!-- main element -->
     <main>
         <article>
+		
             <h2>Buscar libros</h2>
             
             <label for="searchBook">Buscar: </label>
@@ -41,6 +42,7 @@
         
         
         <article>
+	<section>
             <table id="resultadoLibros" class="tabla-resultado">
                 <tr class="tabla-libros-cabezera">
                     <th>Titulo</th>
@@ -49,8 +51,32 @@
    
 		 </tr>       
             </table>
-            
+         </section>
+		
+	 <section>
+		 <form>
+			<label for="titleBook">Titulo: </label>
+            		<input type="text" id="titleBook">
+			 
+			 <label for="typeBook">Tipo Libro: </label>
+            		<input type="text" id="typeBook">
+			 
+			 <label for="colectionBook">Coleccion: </label>
+            		<input type="text" id="colectionBook">
+			 
+			  <label for="autorBook">Autor: </label>
+            		<input type="text" id="autorBook">
+			 
+			 <label for="formatBook">Formato: </label>
+            		<input type="text" id="formatBook">
+ 
+  			<input type="submit" value="Registrar Libro" /> 
+		</form>
+		 
+	 </section>
+		 
         </article>
+	
     </main>
 
 
