@@ -47,10 +47,8 @@
     <script> 
       
         
-        axios.post('https://jsonplaceholder.typicode.com/todos', {
-        userId: '1',
-        title: 'delectus aut autem',
-        completed: false
+        axios.post('https://www.googleapis.com/books/v1/volumes', {
+        q: 'armada'
         })
   .then(function (response) {
     console.log(response);
