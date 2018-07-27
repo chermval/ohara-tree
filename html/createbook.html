@@ -70,10 +70,12 @@
     	    var row = table.insertRow(rowCount);
             
            console.log(response);
+           var data = JSON.stringify(response.data, null, '\t')
+		console.log(data); 
 		
-	    for (var i = 0; i < response.items.length; i++){
+	    for (var i = 0; i < data.items.length; i++){
 		
-		    var libro = response.items[i];
+		    var libro = data.items[i];
 
 		
 	    	row.insertCell(0).innerHTML= libro.volumeInfo.title;
