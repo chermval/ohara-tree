@@ -87,11 +87,25 @@
 		}
 		
     		row.insertCell(1).innerHTML= autor; 
-    		
-		var isbnType = libro.volumeInfo.industryIdentifiers[0].type;
+    		var isbn13 = null;
+		var isbnOtro = null;
+		   
+		for (var cont = 0; cont < libro.volumeInfo.industryIdentifiers.length; cont++){
+			var isbnType = libro.volumeInfo.industryIdentifiers[cont].type;
+			
+			if(isbnType == "ISBN_13"){
+				isbn13 = libro.volumeInfo.industryIdentifiers[cont].identifier;
+			}else {
+				isbnOtro = libro.volumeInfo.industryIdentifiers[cont].identifier;
+			}
+		}
 		
-		row.insertCell(2).innerHTML= libro.volumeInfo.industryIdentifiers[0].identifier;
-    	 
+		if (isbn13 != null){
+			row.insertCell(2).innerHTML= isbn13;
+		} else{
+			row.insertCell(2).innerHTML= isbnOtro;
+		}
+		
 		
 		rowCount++;   
 	    }
