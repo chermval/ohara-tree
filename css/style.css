@@ -56,6 +56,5 @@
 .tabla-resultado {
   border-collapse: collapse;
   width: 40%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5%;
 }
