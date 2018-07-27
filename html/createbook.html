@@ -77,9 +77,20 @@
 		var row = table.insertRow(rowCount);
 		var libro = respuesta.data.items[i];
 
-		row.insertCell(0).innerHTML= libro.volumeInfo.title;
-    		row.insertCell(1).innerHTML= libro.volumeInfo.authors[0];
-    		row.insertCell(2).innerHTML= libro.volumeInfo.industryIdentifiers[0].identifier;
+		
+		
+		row.insertCell(0).innerHTML= libro.volumeInfo.title; 
+		  
+		var autor = libro.volumeInfo.authors[0];
+		if (autor === undefined){
+			autor = "Anonimo";
+		}
+		
+    		row.insertCell(1).innerHTML= autor; 
+    		
+		var isbnType = libro.volumeInfo.industryIdentifiers[0].type;
+		
+		row.insertCell(2).innerHTML= libro.volumeInfo.industryIdentifiers[0].identifier;
     	 
 		
 		rowCount++;   
