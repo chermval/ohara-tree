@@ -81,7 +81,7 @@
 		
 	    for (var i = 0; i < 10; i++){
 		document.getElementById("content").innerHTML += "<br>" + data;
-		  var libro = response.items[i];
+		  var libro = response.request.response.items[i];
 
 		
 	    	row.insertCell(0).innerHTML= libro.volumeInfo.title;
