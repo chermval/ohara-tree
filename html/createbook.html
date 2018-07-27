@@ -81,12 +81,14 @@
 		
 		row.insertCell(0).innerHTML= libro.volumeInfo.title; 
 		  
-		var autor = libro.volumeInfo.authors[0];
-		if (autor === undefined){
-			autor = "Anonimo";
+		
+		if (libro.volumeInfo.authors[0] == undefined){
+			row.insertCell(1).innerHTML= "Anonimo";
+		}else{
+			row.insertCell(1).innerHTML=libro.volumeInfo.authors[0];
 		}
 		
-    		row.insertCell(1).innerHTML= autor; 
+		   
     		var isbn13 = null;
 		var isbnOtro = null;
 		   
