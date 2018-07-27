@@ -35,6 +35,8 @@
             <label for="searchBook">Buscar: </label>
             <input type="text" id="searchBook" value="armada">
             
+		<div id="content"></div>
+
         </article>
         
         
@@ -70,6 +72,14 @@
     	    var row = table.insertRow(rowCount);
             
            console.log(response);
+		
+	for (var i = 0; i < response.items.length; i++) {
+        var item = response.items[i];
+        // in production code, item.text should have the HTML entities escaped.
+        document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.title;
+      }
+
+		
            var data = JSON.stringify(response.data, null, '\t')
 		console.log(data); 
 		
