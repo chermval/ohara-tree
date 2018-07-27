@@ -67,7 +67,7 @@
         
         
         axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook)
-        .then(function (response) {
+        .then(function (respuesta) {
             var rowCount = table.rows.length;
     	    var row = table.insertRow(rowCount);
             
@@ -76,15 +76,15 @@
 	
 
 		
-           var data = JSON.stringify(response.data, null, '\t')
+           var data = JSON.stringify(respuesta.data, null, '\t')
 		console.log(data); 
 		
 	    for (var i = 0; i < 10; i++){
 		document.getElementById("content").innerHTML += "<br>" + data;
-		  var libro = response.request.response.items[i];
+		  var libro = respuesta.request.response.items[i];
 
 		
-	    	row.insertCell(0).innerHTML= libro.volumeInfo.title;
+	    	row.insertCell(0).innerHTML= respuesta.volumeInfo.title;
     		row.insertCell(1).innerHTML= libro.volumeInfo.title;
     		row.insertCell(2).innerHTML= libro.volumeInfo.title;
     		row.insertCell(3).innerHTML= libro.volumeInfo.title;
