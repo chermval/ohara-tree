@@ -69,7 +69,7 @@
             var rowCount = table.rows.length;
     	    var row = table.insertRow(rowCount);
             
-		row.insertCell(0).innerHTML= response.value.items.volumeInfo.title;
+		row.insertCell(0).innerHTML= response.items.volumeInfo.title;
     		row.insertCell(1).innerHTML= response.items.volumeInfo.title;
     		row.insertCell(2).innerHTML= response.items.volumeInfo.title;
     		row.insertCell(3).innerHTML= response.items.volumeInfo.title;
