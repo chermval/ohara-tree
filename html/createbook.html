@@ -47,9 +47,7 @@
     <script> 
       
         
-        axios.post('https://www.googleapis.com/books/v1/volumes', {
-        q: 'armada'
-        })
+        axios.get('https://www.googleapis.com/books/v1/volumes?q=armada')
   .then(function (response) {
     console.log(response);
   })
