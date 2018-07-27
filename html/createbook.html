@@ -79,9 +79,16 @@
            var data = JSON.stringify(response.data, null, '\t')
 		console.log(data); 
 		
-	    for (var i = 0; i < data.items.length; i++){
+	    for (var i = 0; i < 10; i++){
 		document.getElementById("content").innerHTML += "<br>" + data;
-		  
+		  var libro = data.items[i];
+
+		
+	    	row.insertCell(0).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(1).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(2).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(3).innerHTML= libro.volumeInfo.title;
+    		row.insertCell(4).innerHTML= libro.volumeInfo.title;
 	    }
             
         
