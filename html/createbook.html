@@ -12,7 +12,7 @@
     <!-- header element -->
     <header class="cabezera">
         <!-- our main logo -->
-        <a id="logo" class="cabezera-logo" href="index.html">
+        <a id="logo" class="cabezera-logo" href="../index.html">
             <span>Ohara's tree</span>
         </a>
 
@@ -30,7 +30,7 @@
     <!-- main element -->
     <main>
         <article>
-            <h2>Byscar libros</h2>
+            <h2>Buscar libros</h2>
             
             
 
@@ -43,14 +43,10 @@
         <p>Create by: chermosi</p>
     </footer>
     
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script> 
-        const axios = require('axios');
-        
-        axios.get('https://www.googleapis.com/books/v1/volumes', {
-           params: {
+        axios.post('https://www.googleapis.com/books/v1/volumes', {
                 q: 'armada'
-            }
         })
         .then(function (response) {
             console.log(response);
