@@ -77,9 +77,13 @@
 		var row = table.insertRow(rowCount);
 		var libro = respuesta.data.items[i];
 
+		var titulo = libro.volumeInfo.title;
 		
+		if (libro.volumeInfo.subtitle !== undefined){
+			titulo = libro.volumeInfo.title + " : "+ libro.volumeInfo.subtitle;
+		}
 		
-		row.insertCell(0).innerHTML= libro.volumeInfo.title; 
+		row.insertCell(0).innerHTML= titulo; 
 		  
 		
 		if (libro.volumeInfo.authors === undefined){
