@@ -68,13 +68,12 @@
         .then(function (response) {
             var rowCount = table.rows.length;
     	    var row = table.insertRow(rowCount);
-            var dataBook = response.val();
             
-		row.insertCell(0).innerHTML= dataBook.items.volumeInfo.title;
-    		row.insertCell(1).innerHTML= dataBook.items.volumeInfo.title;
-    		row.insertCell(2).innerHTML= dataBook.items.volumeInfo.title;
-    		row.insertCell(3).innerHTML= dataBook.items.volumeInfo.title;
-    		row.insertCell(4).innerHTML= dataBook.items.volumeInfo.title;
+		row.insertCell(0).innerHTML= response.value.items.volumeInfo.title;
+    		row.insertCell(1).innerHTML= response.items.volumeInfo.title;
+    		row.insertCell(2).innerHTML= response.items.volumeInfo.title;
+    		row.insertCell(3).innerHTML= response.items.volumeInfo.title;
+    		row.insertCell(4).innerHTML= response.items.volumeInfo.title;
             
         
             console.log(response);
