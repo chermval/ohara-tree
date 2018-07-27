@@ -6,7 +6,7 @@
     <title>OHARA'S TREE</title>
 
     <!-- attach our stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- header element -->
@@ -45,6 +45,17 @@
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        const axios = require('axios');
+        
+        axios.post('https://www.googleapis.com/books/v1/volumes', {
+            q: 'armada'
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
         
     </script>
 
