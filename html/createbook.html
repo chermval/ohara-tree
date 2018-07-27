@@ -69,6 +69,8 @@
             var rowCount = table.rows.length;
     	    var row = table.insertRow(rowCount);
             
+           console.log(response);
+		
 	    for (var i = 0; i < response.items.length; i++){
 		
 		    var libro = response.items[i];
@@ -82,7 +84,7 @@
 	    }
             
         
-            console.log(response);
+            
         })
         .catch(function (error) {
             console.log(error);
