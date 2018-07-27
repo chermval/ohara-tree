@@ -43,17 +43,21 @@
         <p>Create by: chermosi</p>
     </footer>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script> 
-        axios.post('https://www.googleapis.com/books/v1/volumes', {
-                q: 'armada'
+      
+        
+        axios.post('http://jsonplaceholder.typicode.com/todos', {
+        userId: '1',
+        title: todoTitle,
+        completed: false
         })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-        console.log(error);
-        });
+  .then(function (response) {
+    resultElement.innerHTML = generateSuccessHTMLOutput(response);
+  })
+  .catch(function (error) {
+    resultElement.innerHTML = generateErrorHTMLOutput(error);
+  });
         
     </script>
 
