@@ -67,9 +67,10 @@
         axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook)
         .then(function (response) {
             var rowCount = table.rows.length;
-    		var row = table.insertRow(rowCount);
-            var dataBook = response.val()
-            row.insertCell(0).innerHTML= dataBook.items.volumeInfo.title;
+    	    var row = table.insertRow(rowCount);
+            var dataBook = response.val();
+            
+		row.insertCell(0).innerHTML= dataBook.items.volumeInfo.title;
     		row.insertCell(1).innerHTML= dataBook.items.volumeInfo.title;
     		row.insertCell(2).innerHTML= dataBook.items.volumeInfo.title;
     		row.insertCell(3).innerHTML= dataBook.items.volumeInfo.title;
