@@ -73,18 +73,14 @@
             
            console.log(response);
 		
-	for (var i = 0; i < response.items.length; i++) {
-        var item = response.items[i];
-        // in production code, item.text should have the HTML entities escaped.
-        document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.title;
-      }
+	
 
 		
            var data = JSON.stringify(response.data, null, '\t')
 		console.log(data); 
 		
 	    for (var i = 0; i < data.items.length; i++){
-		
+		document.getElementById("content").innerHTML += "<br>" + data;
 		    var libro = data.items[i];
 
 		
