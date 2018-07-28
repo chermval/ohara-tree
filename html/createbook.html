@@ -113,11 +113,12 @@
 							   
 							  
         function buscarLibro(){
+	    var apikeyDev="AIzaSyB_V9hvTgyrbtq2GrB7pZRjGsB183gmg9Y";
 	    var searchBook= document.getElementById("searchBook").value; 
             var table = document.getElementById("resultadoLibros");
         
-        
-            axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook)
+            
+            axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook+'&key='+apikeyDev)
            .then(function (respuesta) {
                 var rowCount = table.rows.length;
     	    
