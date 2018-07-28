@@ -113,7 +113,10 @@
 	var apikeyDev="AIzaSyB_V9hvTgyrbtq2GrB7pZRjGsB183gmg9Y";
 	var buttonSeach = document.getElementById('btnSearchBook');
 	var searchBook = document.getElementById('searchBook').value;
+	    
+	console.log("valor a buscar "+searchBook);   
 	btnSearchBook.onclick = function(){
+		console.log("ON CLICK ");   
             if (searchBook !=="" && searchBook!==undefined && searchBook!=null){
 		var table = document.getElementById("resultadoLibros");
         
