@@ -37,7 +37,7 @@
             	<label for="searchBook">Nombre del libro: </label>
             	<input type="text" id="searchBook" >
             	
-		<input type="submit" value="Buscar Libro" onclick="searchBook();" /> 
+		<input type="submit" value="Buscar Libro" onclick="buscarLibro();" /> 
 	    </form>
 		
 
@@ -112,7 +112,7 @@
 							   
 							   
 							  
-        function searchBook(){
+        function buscarLibro(){
 	    var searchBook= document.getElementById("searchBook").value; 
             var table = document.getElementById("resultadoLibros");
         
