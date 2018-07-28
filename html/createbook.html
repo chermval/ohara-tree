@@ -33,16 +33,19 @@
 		
             <h2>Buscar libros</h2>
             
-            <label for="searchBook">Buscar: </label>
-            <input type="text" id="searchBook" value="armada">
-            
-		<div id="content"></div>
+	    <form>
+            	<label for="searchBook">Nombre del libro: </label>
+            	<input type="text" id="searchBook" >
+            	
+		<input type="submit" value="Buscar Libro" onclick="searchBook();" /> 
+	    </form>
+		
 
         </article>
         
         
         <article>
-	<section class="contenedor">
+	<section class="contenedor contenedor-tabla">
             <table id="resultadoLibros" class="tabla-resultado">
                 <tr class="tabla-libros-cabezera">
                     <th>Titulo</th>
@@ -53,8 +56,10 @@
             </table>
          </section>
 		
-	 <section class="contenedor">
+	 <section class="contenedor contenedor-form">
 		 <form>
+		        <input id="isbnBook" name="isbnBook" type="hidden">
+			 
 			<label for="titleBook">Titulo: </label>
             		<input type="text" id="titleBook"><br>
 			 
@@ -95,42 +100,50 @@
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script> 
-        var searchBook= document.getElementById("searchBook").value; 
-        var table = document.getElementById("resultadoLibros");
+	var tabla = document.getElementById('resultadoLibros');
+                
+        for(var i = 1; i < tabla.rows.length; i++){
+            table.rows[i].onclick = function(){
+                document.getElementById("titleBook").value = this.cells[0].innerHTML;
+                document.getElementById("autorBook").value = this.cells[1].innerHTML;
+                document.getElementById("isbnBook").value = this.cells[2].innerHTML;
+             };
+        }
+							   
+							   
+							  
+        function searchBook(){
+	    var searchBook= document.getElementById("searchBook").value; 
+            var table = document.getElementById("resultadoLibros");
         
         
-        axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook)
-        .then(function (respuesta) {
-            var rowCount = table.rows.length;
+            axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook)
+           .then(function (respuesta) {
+                var rowCount = table.rows.length;
     	    
-            
-           console.log(respuesta);
-
-	   for (var i = 0; i < 10; i++){
+	        for (var i = 0; i < 10; i++){
 		
-		var row = table.insertRow(rowCount);
-		var libro = respuesta.data.items[i];
+		    var row = table.insertRow(rowCount);
+		    var libro = respuesta.data.items[i];
 
-		var titulo = libro.volumeInfo.title;
+		    var titulo = libro.volumeInfo.title;
 		
-		if (libro.volumeInfo.subtitle !== undefined){
+		   if (libro.volumeInfo.subtitle !== undefined){
 			titulo = libro.volumeInfo.title + " : "+ libro.volumeInfo.subtitle;
-		}
+		   }
 		
-		row.insertCell(0).innerHTML= titulo; 
-		  
+		   row.insertCell(0).innerHTML= titulo; 
 		
-		if (libro.volumeInfo.authors === undefined){
+		   if (libro.volumeInfo.authors === undefined){
 			row.insertCell(1).innerHTML= "Anonimo";
-		}else{
+		   }else{
 			row.insertCell(1).innerHTML=libro.volumeInfo.authors[0];
-		}
+		   }
 		
+    		   var isbn13 = null;
+		   var isbnOtro = null;
 		   
-    		var isbn13 = null;
-		var isbnOtro = null;
-		   
-		for (var cont = 0; cont < libro.volumeInfo.industryIdentifiers.length; cont++){
+		   for (var cont = 0; cont < libro.volumeInfo.industryIdentifiers.length; cont++){
 			var isbnType = libro.volumeInfo.industryIdentifiers[cont].type;
 			
 			if(isbnType == "ISBN_13"){
@@ -138,24 +151,28 @@
 			}else {
 				isbnOtro = libro.volumeInfo.industryIdentifiers[cont].identifier;
 			}
-		}
+		   }
 		
-		if (isbn13 != null){
+		   if (isbn13 != null){
 			row.insertCell(2).innerHTML= isbn13;
-		} else{
+		   } else{
 			row.insertCell(2).innerHTML= isbnOtro;
-		}
+		   }
 		
-		
-		rowCount++;   
+		   rowCount++;   
 	    }
             
         
             
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            })
+            .catch(function (error) {
+                 console.log(error);
+            });
+	}
+        
+	function registerBook(){
+						
+	}
         
     </script>
 
