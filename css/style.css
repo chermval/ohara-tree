@@ -52,6 +52,9 @@
   height: 50px;
 }
 
+tr:hover {
+  background-color: #444;
+}
 
 .tabla-resultado {
   border-collapse: collapse;
@@ -59,6 +62,17 @@
 
 .contenedor {
   display: inline-block;
-  width: 45%;
-  margin-left: 4%;
+  width: 48%;
+  margin-left: 2%;
 }
+
+.contenedor-tabla {
+  width: 60%;
+}
+
+.contenedor-form {
+  width: 35%;
+  vertical-align: top;
+}
+
+
