@@ -55,6 +55,10 @@
 
 .tabla-resultado {
   border-collapse: collapse;
-  width: 40%;
-  margin-left: 5%;
+}
+
+.contenedor {
+  display: inline-block;
+  width: 45%;
+  margin-left: 4%;
 }
