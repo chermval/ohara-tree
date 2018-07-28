@@ -35,7 +35,7 @@
             
 	    <form>
             	<label for="searchBook">Nombre del libro: </label>
-            	<input type="text" id="searchBook" value="">
+            	<input type="text" id="searchBook">
             	
 		<input type="submit" id="btnSearchBook" value="Buscar Libro" /> 
 	    </form>
@@ -114,7 +114,7 @@
 	var buttonSeach = document.getElementById('btnSearchBook');
 	var searchBook = document.getElementById('searchBook').value;
 	btnSearchBook.onclick = function(){
-            if (searchBook !==""){
+            if (searchBook !=="" && searchBook!==undefined && searchBook!=null){
 		var table = document.getElementById("resultadoLibros");
         
                 axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook+'&key='+apikeyDev)
