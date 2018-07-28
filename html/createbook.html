@@ -42,7 +42,7 @@
         
         
         <article>
-	<section>
+	<section class="contenedor">
             <table id="resultadoLibros" class="tabla-resultado">
                 <tr class="tabla-libros-cabezera">
                     <th>Titulo</th>
@@ -53,30 +53,30 @@
             </table>
          </section>
 		
-	 <section>
+	 <section class="contenedor">
 		 <form>
 			<label for="titleBook">Titulo: </label>
-            		<input type="text" id="titleBook">
+            		<input type="text" id="titleBook"><br>
 			 
 			 <label for="typeBook">Tipo Libro: </label>
 			 <select id="typeBook">
   				<option value="1">Saga</option>
   				<option value="2">Trilogia</option>
   				<option value="3">Autoconclusivo</option>
-			</select>
+			</select><br>
 			 
-			 <label for="colectionBook">Coleccion: </label>
-            		<input type="text" id="colectionBook">
+			<label for="colectionBook">Coleccion: </label>
+            		<input type="text" id="colectionBook"><br>
 			 
-			  <label for="autorBook">Autor: </label>
-            		<input type="text" id="autorBook">
+			<label for="autorBook">Autor: </label>
+            		<input type="text" id="autorBook"><br>
 			 
 			 <label for="formatBook">Formato: </label>
             		<select id="formatBook">
   				<option value="1">Fisico</option>
   				<option value="2">Digital EPUB</option>
   				<option value="3">Digital PDF</option>
-			</select>
+			</select><br>
  
   			<input type="submit" value="Registrar Libro" /> 
 		</form>
