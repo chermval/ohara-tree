@@ -37,7 +37,7 @@
             	<label for="searchBook">Nombre del libro: </label>
             	<input type="text" id="searchBook">
             	
-		<button id="btnSearchBook">Buscar Libro</button> 
+		<button id="btnSearchBook" onclick="buscarBook()">Buscar Libro</button> 
 	    </form>
 		
 
@@ -98,8 +98,8 @@
         <p>Create by: chermosi</p>
     </footer>
     
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script> 
+    <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+    <script type="text/javascript"> 
 	var tabla = document.getElementById('resultadoLibros');
                 
         for(var i = 1; i < tabla.rows.length; i++){
@@ -113,67 +113,71 @@
 	var apikeyDev="AIzaSyB_V9hvTgyrbtq2GrB7pZRjGsB183gmg9Y";
 	var buttonSeach = document.getElementById('btnSearchBook');
 	
-	btnSearchBook.onclick = function(){
-		console.log("ON CLICK ");   
-		var searchBook = document.getElementById('searchBook').value;
+	gapi.load('auth2', function() {
+            // Library loaded.
+        });
 	    
-	        console.log("valor a buscar "+searchBook);   
-            if (searchBook !=="" && searchBook!==undefined && searchBook!=null){
-		var table = document.getElementById("resultadoLibros");
-        
-                axios.get('https://www.googleapis.com/books/v1/volumes?q='+searchBook+'&key='+apikeyDev)
-                .then(function (respuesta) {
-                     var rowCount = table.rows.length;
+        function buscarBook(){
+	     var searchBook = document.getElementById('searchBook').value;
+	     var table = document.getElementById("resultadoLibros");
+             var request = new XMLHttpRequest();
+	     var url = 'https://www.googleapis.com/books/v1/volumes?q='+searchBook+'&key='+apikeyDev;
+		
+		request.open('GET', url, true);
+		
+		request.onreadystatechange = function() {
+                     if (this.readyState === 4 && this.status === 200) {
+                         let respuesta = JSON.parse(this.responseText);
+                         
+			 var rowCount = table.rows.length;
     	    
-	             for (var i = 0; i < 10; i++){
+	             	for (var i = 0; i < 10; i++){
 		
-		         var row = table.insertRow(rowCount);
-		         var libro = respuesta.data.items[i];
+		             var row = table.insertRow(rowCount);
+		             var libro = respuesta.data.items[i];
 
-		         var titulo = libro.volumeInfo.title;
+		             var titulo = libro.volumeInfo.title;
 		
-		        if (libro.volumeInfo.subtitle !== undefined){
-			    titulo = libro.volumeInfo.title + " : "+ libro.volumeInfo.subtitle;
-		        }
+		             if (libro.volumeInfo.subtitle !== undefined){
+			        titulo = libro.volumeInfo.title + " : "+ libro.volumeInfo.subtitle;
+		             }
 		
-		        row.insertCell(0).innerHTML= titulo; 
+		             row.insertCell(0).innerHTML= titulo; 
 		
-		        if (libro.volumeInfo.authors === undefined){
-			    row.insertCell(1).innerHTML= "Anonimo";
-		        }else{
-			    row.insertCell(1).innerHTML=libro.volumeInfo.authors[0];
-		        }
+		             if (libro.volumeInfo.authors === undefined){
+			         row.insertCell(1).innerHTML= "Anonimo";
+		             }else{
+			         row.insertCell(1).innerHTML=libro.volumeInfo.authors[0];
+		             }
 		
-    		        var isbn13 = null;
-		        var isbnOtro = null;
+    		             var isbn13 = null;
+		             var isbnOtro = null;
 		   
-		        for (var cont = 0; cont < libro.volumeInfo.industryIdentifiers.length; cont++){
-			    var isbnType = libro.volumeInfo.industryIdentifiers[cont].type;
+		            for (var cont = 0; cont < libro.volumeInfo.industryIdentifiers.length; cont++){
+			         var isbnType = libro.volumeInfo.industryIdentifiers[cont].type;
 			
-			    if(isbnType == "ISBN_13"){
-				isbn13 = libro.volumeInfo.industryIdentifiers[cont].identifier;
-			    }else {
-				isbnOtro = libro.volumeInfo.industryIdentifiers[cont].identifier;
-			    }
-		        }
+			         if(isbnType == "ISBN_13"){
+				      isbn13 = libro.volumeInfo.industryIdentifiers[cont].identifier;
+			         }else {
+				      isbnOtro = libro.volumeInfo.industryIdentifiers[cont].identifier;
+			        }
+		            }
 		
-		        if (isbn13 != null){
-			    row.insertCell(2).innerHTML= isbn13;
-		        } else{
-			    row.insertCell(2).innerHTML= isbnOtro;
-		        }
+		            if (isbn13 != null){
+			         row.insertCell(2).innerHTML= isbn13;
+		            } else{
+			         row.insertCell(2).innerHTML= isbnOtro;
+		            }
 		
-		        rowCount++;   
-	          }
-            
-        
-            
-                  })
-		.catch(function (error) {
-                     console.log(error);
-                });
-	     }
-        };
+		           rowCount++;   
+	               }
+		     }
+		};
+                request.send();
+		    
+	
+	}
+	
 							  
         
 	function registerBook(){
