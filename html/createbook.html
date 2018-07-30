@@ -126,8 +126,9 @@
 		request.open('GET', url, true);
 		
 		request.onreadystatechange = function() {
+			 console.log(this);
                      if (this.readyState === 4 && this.status === 200) {
-                         let respuesta = JSON.parse(this.responseText);
+                         var respuesta = JSON.parse(this.responseText);
                          
 			 console.log(this.responseText);
 			     
