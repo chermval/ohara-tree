@@ -176,6 +176,10 @@
 	               }
 		     }
 		};
+		
+		request.onerror = function () {
+  		    console.log("** An error occurred during the transaction");
+		};
                 request.send();
 		    
 	
