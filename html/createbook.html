@@ -121,7 +121,7 @@
 	     var searchBook = document.getElementById('searchBook').value;
 	     var table = document.getElementById("resultadoLibros");
              var request = new XMLHttpRequest();
-	     var url = 'https://www.googleapis.com/books/v1/volumes?q='+searchBook+'&key='+apikeyDev;
+	     var url = "https://www.googleapis.com/books/v1/volumes?q="+searchBook+"&key="+apikeyDev;
 		
 		request.open('GET', url, true);
 		
