@@ -123,12 +123,11 @@
 	     $.ajax({
  		// parameters
 		url : urlBookSearch,
-		type: 'GET' 
-	     })
-  	     .done(function( respuesta ) {
- 		// success
-		console.log(respuesta);
-		var rowCount = table.rows.length;
+		type: 'GET',
+		success: function( respuesta ) {
+    			console.log(data);
+			
+			var rowCount = table.rows.length;
 		
 		for (var i = 0; i < 10; i++){
 		
@@ -170,9 +169,8 @@
 		
 		           rowCount++;   
 	               }
-		     
+  		}
 	     });
-		
 		
 		
 	}
